@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var incompleteButton: UIButton!
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var totalItemCountText: UILabel!
     
     @IBOutlet weak var itemDateSwitch: UISwitch!
     @IBOutlet weak var addItemStackView: UIStackView!
@@ -34,9 +35,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         allButton.isSelected = true
+        
         items = DataManager.shared.getAllToDoItems()
-
-        self.tableView.reloadData()
+        reloadScreen()
 
     }
     
@@ -70,15 +71,15 @@ class MainViewController: UIViewController {
         
         items = DataManager.shared.getAllToDoItems()
         
-        self.tableView.reloadData()
+        reloadScreen()
     }
     
     @IBAction func selectCompleteFilter(_ sender: Any) {
         setButtonWeight(boldButton: completeButton, regularButton1: incompleteButton, regularButton2: allButton)
         
         items = DataManager.shared.getCompletedToDoItems()
-
-        self.tableView.reloadData()
+        
+        reloadScreen()
         
     }
     
@@ -87,7 +88,7 @@ class MainViewController: UIViewController {
         
         items = DataManager.shared.getIncompleteToDoItems()
         
-        self.tableView.reloadData()
+        reloadScreen()
         
     }
     
@@ -116,7 +117,7 @@ class MainViewController: UIViewController {
         var date = itemDatePicker.date
         
         if(!needReminderDate) {
-            date = itemDatePicker.minimumDate!
+            date = itemDatePicker.maximumDate!
         }
         
         let item = DataManager.shared.addToDoItem(title: itemTitle, notes: itemNotes, isCompleted: isCompleted, needReminderDate: needReminderDate, reminderDate: date)
@@ -129,7 +130,8 @@ class MainViewController: UIViewController {
             items.append(item)
         }
         
-        tableView.reloadData()
+        
+        reloadScreen()
         DataManager.shared.save()
         
         closeAddMenu()
@@ -174,11 +176,17 @@ class MainViewController: UIViewController {
         addItemButton.isHidden = false
     }
     
+    func reloadScreen() {
+        totalItemCountText.text = "Item Count: " + String(items.count)
+        self.tableView.reloadData()
+    }
+    
     func clearItemFields() {
         itemTitleTextField.text = nil
         itemNotesTextField.text = nil
         itemIsCompletedSwitch.isOn = false
         itemDateSwitch.isOn = false
+        itemDatePicker.isHidden = true
         itemDatePicker.date = Date()
     }
     

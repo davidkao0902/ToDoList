@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8CX-fV-XRq">
-                                <rect key="frame" x="20" y="99" width="374" height="753"/>
+                                <rect key="frame" x="20" y="99" width="374" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="qe2-HG-OtU" customClass="MyTableViewCell" customModule="CoreToDoList" customModuleProvider="target">
@@ -150,7 +150,7 @@ FlRpdGxlA
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25s-Bv-2HD">
                                         <rect key="frame" x="0.0" y="155" width="374" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supposed End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njO-66-TGr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njO-66-TGr">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -168,6 +168,9 @@ FlRpdGxlA
                                         <rect key="frame" x="0.0" y="188.33333333333331" width="374" height="0.0"/>
                                         <date key="minimumDate" timeIntervalSinceReferenceDate="-978278400">
                                             <!--1970-01-01 08:00:00 +0000-->
+                                        </date>
+                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                            <!--2037-12-31 11:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZEs-hV-6C7">
@@ -243,10 +246,17 @@ FlRpdGxlA
                                     <action selector="selectIncompleteFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RJo-lh-2xd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Count: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob0-Oj-YtB">
+                                <rect key="frame" x="29.999999999999993" y="831.66666666666663" width="95.333333333333314" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ob0-Oj-YtB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="5lY-Yd-5CS"/>
                             <constraint firstItem="8CX-fV-XRq" firstAttribute="top" secondItem="NrJ-co-uHB" secondAttribute="bottom" id="A2J-p0-L80"/>
                             <constraint firstItem="yIm-Pe-l7e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="BxR-Mm-V6o"/>
                             <constraint firstItem="yIm-Pe-l7e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="DaJ-9i-RcM"/>
@@ -255,8 +265,9 @@ FlRpdGxlA
                             <constraint firstItem="Eb2-ng-pal" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="NTH-1v-LiR"/>
                             <constraint firstItem="nFu-fI-SGo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="USu-dt-Qzl"/>
                             <constraint firstItem="Eb2-ng-pal" firstAttribute="leading" secondItem="4z0-F2-0AA" secondAttribute="trailing" constant="5" id="WFZ-Rf-4pp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8CX-fV-XRq" secondAttribute="bottom" constant="10" id="XCx-ai-5V8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8CX-fV-XRq" secondAttribute="bottom" constant="40" id="XCx-ai-5V8"/>
                             <constraint firstItem="8CX-fV-XRq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZcT-y9-d7L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ob0-Oj-YtB" secondAttribute="bottom" constant="10" id="b5o-jm-Arg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NrJ-co-uHB" secondAttribute="trailing" constant="10" id="fnC-eY-hUu"/>
                             <constraint firstItem="4z0-F2-0AA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="ipm-yf-a5K"/>
                             <constraint firstItem="nFu-fI-SGo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mok-Pq-EJW"/>
@@ -278,6 +289,7 @@ FlRpdGxlA
                         <outlet property="itemTitleTextField" destination="bNT-nG-jeq" id="CPd-rY-8wN"/>
                         <outlet property="tableView" destination="8CX-fV-XRq" id="Qrn-fO-Vwt"/>
                         <outlet property="tableViewConstraint" destination="A2J-p0-L80" id="fZn-FE-g68"/>
+                        <outlet property="totalItemCountText" destination="ob0-Oj-YtB" id="GEg-W5-8Oc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -337,7 +349,7 @@ FlRpdGxlA
                                     <stackView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kb6-eG-vb3">
                                         <rect key="frame" x="0.0" y="161" width="394" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supposed End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlG-Mo-I8R">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlG-Mo-I8R">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -358,6 +370,9 @@ FlRpdGxlA
                                         </constraints>
                                         <date key="minimumDate" timeIntervalSinceReferenceDate="-978278400">
                                             <!--1970-01-01 08:00:00 +0000-->
+                                        </date>
+                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                            <!--2037-12-31 11:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                 </subviews>
@@ -432,6 +447,9 @@ FlRpdGxlA
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

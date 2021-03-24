@@ -53,7 +53,7 @@ class DataManager {
     func getAllToDoItems() -> [ToDoItem] {
         let request: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
         
-        request.sortDescriptors = [NSSortDescriptor(key: "isCompleted", ascending: true), NSSortDescriptor(key: "reminderDate", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "isCompleted", ascending: true), NSSortDescriptor(key: "reminderDate", ascending: true)]
         
         var fetchedToDoItems: [ToDoItem] = []
         
@@ -69,7 +69,7 @@ class DataManager {
         
         let request: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
         
-        request.sortDescriptors = [NSSortDescriptor(key: "reminderDate", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "reminderDate", ascending: true)]
         
         request.predicate = NSPredicate(format: "isCompleted == true")
         
@@ -78,7 +78,7 @@ class DataManager {
         do {
             fetchedToDoItems = try persistentContainer.viewContext.fetch(request)
         } catch {
-            print("Errpr fetching items")
+            print("Error fetching items")
         }
         return fetchedToDoItems
     }
@@ -87,7 +87,7 @@ class DataManager {
         
         let request: NSFetchRequest<ToDoItem> = ToDoItem.fetchRequest()
         
-        request.sortDescriptors = [NSSortDescriptor(key: "reminderDate", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "reminderDate", ascending: true)]
         
         request.predicate = NSPredicate(format: "isCompleted == false")
         
@@ -96,7 +96,7 @@ class DataManager {
         do {
             fetchedToDoItems = try persistentContainer.viewContext.fetch(request)
         } catch {
-            print("Errpr fetching items")
+            print("Error fetching items")
         }
         return fetchedToDoItems
     }

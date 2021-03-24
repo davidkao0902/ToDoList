@@ -74,7 +74,7 @@ class ToDoItemViewController: UIViewController {
         item?.needReminderDate = itemDateSwitch.isOn
         
         if(!itemDateSwitch.isOn) {
-            item?.reminderDate = itemDatePicker.minimumDate!
+            item?.reminderDate = itemDatePicker.maximumDate!
         } else {
             item?.reminderDate = itemDatePicker.date
         }
